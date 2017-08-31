@@ -59,7 +59,7 @@ module.exports = {
     },
   },
   plugins: [
-    `bisheng-plugin-antd?${JSON.stringify(pluginAntdConfig)}`,
+    `bisheng-plugin-vue?${JSON.stringify(pluginAntdConfig)}`,
     'bisheng-plugin-react?lang=__react',
   ],
   routes: [{

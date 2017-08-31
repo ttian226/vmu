@@ -172,20 +172,12 @@ export default class ComponentDoc extends React.Component {
                 <Icon type="qrcode" />
               </Popover>
             </h1>
-            {
-              props.utils.toReactComponent(['section', { className: 'markdown' }]
-                .concat(getChildren(content)),
-              )
-            }
-
             <section id="demoTitle" className="demo-title-wrapper">
               <h2 id="demoTitle" className="demo-title">
                 <FormattedMessage id="app.ComponentDoc.codeTitle" />
               </h2>
             </section>
-          </section>
-
-          <div id="demo-code" className={codeContainerCls}>
+            <div id="demo-code" className={codeContainerCls}>
             <div style={{ width: '100%', float: 'left' }}>
               {leftChildren}
             </div>
@@ -220,6 +212,16 @@ export default class ComponentDoc extends React.Component {
               </div>
             </div>
           </div>
+            {
+              props.utils.toReactComponent(['section', { className: 'markdown' }]
+                .concat(getChildren(content)),
+              )
+            }
+
+
+          </section>
+
+
 
           {
             props.utils.toReactComponent(

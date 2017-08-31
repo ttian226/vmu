@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { WhiteSpace, Button, WingBlank } from 'antd-mobile';
 import collect from 'bisheng/collect';
 import { getQuery } from '../../../../utils';
+import Vue from 'vue'
 
 @collect(async (nextProps) => {
   const pathname = nextProps.location.pathname;
@@ -37,6 +38,13 @@ export default class Demo extends React.Component {
   }
   componentWillUnMount() {
     window.removeEventListener('hashChange', this.update, false);
+  }
+  preview (demo){
+    const { meta } = demo;
+    demo.preview && demo.preview().then((vm)=>{
+      var DemoVM = Vue.extend(vm)
+      new DemoVM().$mount(document.getElementById('test'));
+    })
   }
   render() {
     const { demos, location, picked, themeConfig: config, locale } = this.props;
@@ -75,11 +83,10 @@ export default class Demo extends React.Component {
         </div>
       ));
     } else {
-      console.log(demoSort)
       demoContent = demoSort.map((i, index) => (
         <div className="demo-preview-item" id={`${name}-demo-${i.meta.order}`} key={index}>
           <div className="demoTitle">{i.meta.title[locale]}</div>
-          <div className="demoContainer">{i.preview(React, ReactDOM)}</div>
+          <div className="demoContainer" id="test">{this.preview(i)}</div>
           {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
         </div>
       ));

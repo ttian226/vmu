@@ -6,6 +6,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, Radio, Tooltip, Icon } from 'antd';
 import { ping, head } from '../../../../utils';
+import Vue from 'vue'
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -25,12 +26,17 @@ export default class Demo extends React.Component {
   }
 
   componentDidMount() {
-    const { meta } = this.props;
+    const { meta, preview } = this.props;
     if (meta.id === location.hash.slice(1)) {
       this.anchor.click();
     }
     this.componentWillReceiveProps(this.props);
-
+    if (preview){
+      preview().then((vm) => {
+        var DemoVM = Vue.extend(vm)
+        vueComponents.push(new DemoVM().$mount(document.getElementById(meta.id + '-vue')))
+      })
+    }
     this.pingTimer = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
         this.setState({
@@ -173,7 +179,7 @@ export default class Demo extends React.Component {
           </Radio.Group>
         )}
         <pre className="language-jsx">
-          {/* <code dangerouslySetInnerHTML={{ __html: highlightedCode[lang] }} /> */}
+          <code dangerouslySetInnerHTML={{ __html: highlightedCode[lang] }} />
         </pre>
       </div>
     );
@@ -195,7 +201,6 @@ export default class Demo extends React.Component {
       className,
       utils,
     } = props;
-    console.log(this.props)
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,
@@ -204,7 +209,6 @@ export default class Demo extends React.Component {
     const locale = this.context.intl.locale;
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    console.log(localizeIntro,22)
     const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
     const hsNode = highlightedStyle ? (
@@ -241,7 +245,7 @@ export default class Demo extends React.Component {
               {localizedTitle}
             </a>
           </div>
-          {introChildren}
+          {false && introChildren}
           <span
             className="fullscreen anticon anticon-arrow-salt"
             onClick={this.viewFullscreen}

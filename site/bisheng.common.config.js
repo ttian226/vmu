@@ -18,6 +18,12 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
     };
 
+    config.module.loaders.push(
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    )
     config.babel.plugins.push([
       'babel-plugin-transform-runtime',
       {

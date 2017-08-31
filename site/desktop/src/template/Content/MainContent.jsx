@@ -195,7 +195,6 @@ export default class MainContent extends React.Component {
 
     const localizedPageData = props.localizedPageData;
     const demos = props.demos;
-    console.log(demos)
     const DemoEl = demos ?
       (<ComponentDoc {...props} doc={localizedPageData} demos={demos} />) :
       <Article {...props} content={localizedPageData} />;
