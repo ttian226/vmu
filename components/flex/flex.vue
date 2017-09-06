@@ -11,7 +11,7 @@ export default {
     direction: String,
     wrap: String,
     justify: String,
-    align: String，
+    align: String,
     alignContent: String
   },
   data () {
@@ -39,7 +39,7 @@ export default {
         'vm-flex-align-content-center': this.alignContent === 'center',
         'vm-flex-align-content-between': this.alignContent === 'between',
         'vm-flex-align-content-around': this.alignContent === 'around',
-        'vm-flex-align-content-stretch': this.alignContent === 'stretch',
+        'vm-flex-align-content-stretch': this.alignContent === 'stretch'
       }
     }
   }
@@ -120,7 +120,7 @@ export default {
 
   .vm-flex-align-stretch {
     align-items: stretch;
-  },
+  }
 
   .vm-flex-align-content-start {
     align-content: flex-start;
