@@ -1,12 +1,25 @@
 <template>
-  <div class="vm-row">
+  <div class="vm-row" :style="style">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VRow'
+  name: 'VRow',
+  props: {
+    gutter: Number
+  },
+  computed: {
+    style () {
+      var style = {}
+      if (this.gutter) {
+        style.marginLeft = `-${this.gutter / 2}px`
+        style.marginRight = style.marginLeft
+      }
+      return style
+    }
+  }
 }
 </script>
 

@@ -1,11 +1,36 @@
 <template>
-  <div>
+  <div class="grid-demo">
+    <p class="title">基础布局</p>
     <v-row>
-      <v-col span="24"><div class="grid-content bg-purple-dark"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
     </v-row>
     <v-row>
-      <v-col span="12"><div class="grid-content bg-purple"></div></v-col>
-      <v-col span="12"><div class="grid-content bg-purple-light"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+      <v-col><div class="col-content bg-purple-light"></div></v-col>
+    </v-row>
+    <v-row>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+      <v-col><div class="col-content bg-purple-light"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+    </v-row>
+    <p class="title">分栏间隔</p>
+    <v-row :gutter="10">
+      <v-col><div class="col-content bg-purple"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+      <v-col><div class="col-content bg-purple"></div></v-col>
+    </v-row>
+    <p class="title">混合布局</p>
+    <v-row :gutter="10">
+      <v-col :percent="20"><div class="col-content bg-purple"></div></v-col>
+      <v-col :percent="60"><div class="col-content bg-purple"></div></v-col>
+      <v-col :percent="20"><div class="col-content bg-purple"></div></v-col>
+    </v-row>
+    <v-row :gutter="10">
+      <v-col :percent="20"><div class="col-content bg-purple"></div></v-col>
+      <v-col :percent="20"><div class="col-content bg-purple"></div></v-col>
+      <v-col :percent="30"><div class="col-content bg-purple"></div></v-col>
+      <v-col :percent="30"><div class="col-content bg-purple"></div></v-col>
     </v-row>
   </div>
 </template>
@@ -19,17 +44,30 @@ export default {
 }
 </script>
 <style lang="less">
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+  .grid-demo {
+    margin-left: 15px;
+    margin-right: 15px;
+
+    .title {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .vm-row {
+      margin-bottom: 15px;
+    }
+
+    .col-content {
+      height: 30px;
+      text-align: center;
+    }
+
+    .bg-purple {
+      background-color: #d3dce6;
+    }
+
+    .bg-purple-light {
+      background-color: #e5e9f2;
+    }
   }
 </style>
