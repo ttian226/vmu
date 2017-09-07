@@ -47,102 +47,106 @@ export default {
 </script>
 
 <style lang="less">
-  .vm-flex {
+  @import '../style/mixins';
+
+  @flexPrefixCls: vm-flex;
+
+  .@{flexPrefixCls} {
     display: flex;
     align-items: center;
     overflow-y: hidden;
     text-align: left;
-  }
 
-  .vm-flex-direction-row {
-    flex-direction: row;
-  }
+    .vm-flex-direction-row {
+      flex-direction: row;
+    }
 
-  .vm-flex-direction-row-reverse {
-    flex-direction: row-reverse;
-  }
+    &&-direction-row-reverse {
+      flex-direction: row-reverse;
+    }
 
-  .vm-flex-direction-column {
-    flex-direction: column;
-  }
+    &&-direction-column {
+      flex-direction: column;
+    }
 
-  .vm-flex-direction-column-reverse {
-    flex-direction: column-reverse;
-  }
+    &&-direction-column-reverse {
+      flex-direction: column-reverse;
+    }
 
-  .vm-flex-nowrap {
-    flex-wrap: nowrap;
-  }
+    &&-nowrap {
+      flex-wrap: nowrap;
+    }
 
-  .vm-flex-wrap {
-    flex-wrap: wrap;
-  }
+    &&-wrap {
+      flex-wrap: wrap;
+    }
 
-  .vm-flex-wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
+    &&-wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
 
-  .vm-flex-justify-start {
-    justify-content: flex-start;
-  }
+    &&-justify-start {
+      justify-content: flex-start;
+    }
 
-  .vm-flex-justify-end {
-    justify-content: flex-end;
-  }
+    &&-justify-end {
+      justify-content: flex-end;
+    }
 
-  .vm-flex-justify-center {
-    justify-content: center;
-  }
+    &&-justify-center {
+      justify-content: center;
+    }
 
-  .vm-flex-justify-between {
-    justify-content: space-between;
-  }
+    &&-justify-between {
+      justify-content: space-between;
+    }
 
-  .vm-flex-justify-around {
-    justify-content: space-around;
-  }
+    &&-justify-around {
+      justify-content: space-around;
+    }
 
-  .vm-flex-align-start {
-    align-items: flex-start;
-  }
+    &&-align-start {
+      align-items: flex-start;
+    }
 
-  .vm-flex-align-center {
-    align-items: center;
-  }
+    &&-align-center {
+      align-items: center;
+    }
 
-  .vm-flex-align-end {
-    align-items: flex-end;
-  }
+    &&-align-end {
+      align-items: flex-end;
+    }
 
-  .vm-flex-align-baseline {
-    align-items: baseline;
-  }
+    &&-align-baseline {
+      align-items: baseline;
+    }
 
-  .vm-flex-align-stretch {
-    align-items: stretch;
-  }
+    &&-align-stretch {
+      align-items: stretch;
+    }
 
-  .vm-flex-align-content-start {
-    align-content: flex-start;
-  }
+    &&-align-content-start {
+      align-content: flex-start;
+    }
 
-  .vm-flex-align-content-end {
-    align-content: flex-end;
-  }
+    &&-align-content-end {
+      align-content: flex-end;
+    }
 
-  .vm-flex-align-content-center {
-    align-content: center;
-  }
+    &&-align-content-center {
+      align-content: center;
+    }
 
-  .vm-flex-align-content-between {
-    align-content: space-between;
-  }
+    &&-align-content-between {
+      align-content: space-between;
+    }
 
-  .vm-flex-align-content-around {
-    align-content: space-around;
-  }
+    &&-align-content-around {
+      align-content: space-around;
+    }
 
-  .vm-flex-align-content-stretch {
-    align-content: stretch;
+    &&-align-content-stretch {
+      align-content: stretch;
+    }
   }
 </style>

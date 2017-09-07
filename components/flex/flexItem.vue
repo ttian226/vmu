@@ -11,8 +11,12 @@ export default {
 </script>
 
 <style lang="less">
-  .vm-flex {
-    .vm-flex-item {
+  @import '../style/mixins';
+
+  @flexPrefixCls: vm-flex;
+
+  .@{flexPrefixCls} {
+    .@{flexPrefixCls}-item {
       box-sizing: border-box;
       flex: 1;
       margin-left: .16rem;
@@ -22,16 +26,16 @@ export default {
         margin-left: 0;
       }
     }
-  }
 
-  .vm-flex.vm-flex-direction-row-reverse {
-    .vm-flex-item {
-      &:first-child {
-        margin-left: .16rem;
-      }
+    &&-direction-row-reverse {
+      .@{flexPrefixCls}-item {
+        &:first-child {
+          margin-left: .16rem;
+        }
 
-      &:last-child {
-        margin-left: 0;
+        &:last-child {
+          margin-left: 0;
+        }
       }
     }
   }

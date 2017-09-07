@@ -1,7 +1,5 @@
-import VRow from './row.vue'
-import VCol from './col.vue'
+import VGrid from './grid.vue'
 
 export default {
-  VRow,
-  VCol
+  VGrid
 }
