@@ -12,7 +12,7 @@ export default {
   },
   data () {
     return {
-      data: Array.from(new Array(10)).map((val, index) => ({
+      data: Array.from(new Array(9)).map((val, index) => ({
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
         text: `name${index}`
       }))
