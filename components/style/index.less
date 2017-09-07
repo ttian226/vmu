@@ -8,9 +8,15 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+html {
+  // PX does't parse by 'postcss-pxtorem'. But the browser is not case sensitive, so it works fine.
+  // Set `50` As the basis for rem initially. So it can work properly in the 1x screen of Android device.
+  font-size: 50PX;
+}
+
 body {
   user-select: none;
-  font-size: 16px;
+  font-size: .32rem;
   background-color: @fill-body;
 }
 
