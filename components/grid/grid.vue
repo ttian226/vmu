@@ -1,13 +1,11 @@
 <template>
   <div class="vm-grid" :class="{'vm-grid-line': hasLine}">
     <v-flex justify="center" align="stretch" v-for="(row, rowIndex) in rowNum">
-      <v-flex-item v-for="(col, colIndex) in items.slice(rowIndex * columnNum, rowIndex * columnNum + columnNum)" class="vm-grid-item">
-        <div class="vm-grid-item-content">
+      <v-flex-item v-for="(item, colIndex) in items.slice(rowIndex * columnNum, rowIndex * columnNum + columnNum)" class="vm-grid-item">
+        <div v-if="item" class="vm-grid-item-content" @click="clickGridItem(item, rowIndex * columnNum + colIndex)">
           <div class="vm-grid-item-inner-content" :class="'column-num-' + columnNum">
-            <div v-if="col.icon">
-              <img class="vm-grid-icon" :src="col.icon">
-              <div class="vm-grid-text">{{ col.text }}</div>
-            </div>
+            <img class="vm-grid-icon" :src="item.icon">
+            <div class="vm-grid-text">{{ item.text }}</div>
           </div>
         </div>
       </v-flex-item>
@@ -38,11 +36,12 @@
       },
       items () {
         const restNum = this.data.length % this.columnNum
-        if (!restNum) {
-          return this.data
-        } else {
-          return this.data.concat(Array.from(new Array(this.columnNum - restNum)).map(val => ({})))
-        }
+        return !restNum ? this.data : this.data.concat(new Array(this.columnNum - restNum))
+      }
+    },
+    methods: {
+      clickGridItem (item, index) {
+        this.$emit('onClick', item, index)
       }
     }
   }
