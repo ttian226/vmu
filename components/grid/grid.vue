@@ -1,11 +1,13 @@
 <template>
   <div class="vm-grid" :class="{'vm-grid-line': hasLine}">
     <v-flex justify="center" align="stretch" v-for="(row, rowIndex) in rowNum">
-      <v-flex-item v-for="(col, colIndex) in data.slice(rowIndex * columnNum, rowIndex * columnNum + columnNum)" class="vm-grid-item">
+      <v-flex-item v-for="(col, colIndex) in items.slice(rowIndex * columnNum, rowIndex * columnNum + columnNum)" class="vm-grid-item">
         <div class="vm-grid-item-content">
           <div class="vm-grid-item-inner-content" :class="'column-num-' + columnNum">
-            <img class="vm-grid-icon" :src="col.icon">
-            <div class="vm-grid-text">{{ col.text }}</div>
+            <div v-if="col.icon">
+              <img class="vm-grid-icon" :src="col.icon">
+              <div class="vm-grid-text">{{ col.text }}</div>
+            </div>
           </div>
         </div>
       </v-flex-item>
@@ -33,6 +35,14 @@
     computed: {
       rowNum () {
         return this.data.length % this.columnNum === 0 ? this.data.length / this.columnNum : Math.floor(this.data.length / this.columnNum) + 1
+      },
+      items () {
+        const restNum = this.data.length % this.columnNum
+        if (!restNum) {
+          return this.data
+        } else {
+          return this.data.concat(Array.from(new Array(this.columnNum - restNum)).map(val => ({})))
+        }
       }
     }
   }

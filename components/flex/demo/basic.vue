@@ -87,18 +87,8 @@ export default {
 }
 </script>
 <style lang="less">
-  html {
-    font-size: 50px;
-  }
-
   .flex-demo {
     margin: 0 .3rem;
-
-    .title {
-      color: #888;
-      font-size: .28rem;
-      padding: 30px 0 18px 0;
-    }
 
     .flex-content {
       background-color: #ebebef;

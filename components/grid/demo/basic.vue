@@ -1,6 +1,11 @@
 <template>
   <div class="grid-demo">
+    <div class="sub-title">columnNum="3"</div>
     <v-grid :data="data" :columnNum="3"></v-grid>
+    <div class="sub-title">columnNum="4"</div>
+    <v-grid :data="data" :columnNum="4"></v-grid>
+    <div class="sub-title">no border</div>
+    <v-grid :data="data" :columnNum="4" :hasLine="false"></v-grid>
   </div>
 </template>
 <script>
