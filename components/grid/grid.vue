@@ -24,7 +24,10 @@
     },
     props: {
       data: Array,
-      columnNum: Number,
+      columnNum: {
+        type: Number,
+        default: 4
+      },
       hasLine: {
         type: Boolean,
         default: true
