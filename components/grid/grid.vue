@@ -3,10 +3,11 @@
     <v-flex justify="center" align="stretch" v-for="(row, rowIndex) in rowNum">
       <v-flex-item v-for="(item, colIndex) in items.slice(rowIndex * columnNum, rowIndex * columnNum + columnNum)" class="vm-grid-item">
         <div v-if="item" class="vm-grid-item-content" @click="clickGridItem(item, rowIndex * columnNum + colIndex)">
-          <div class="vm-grid-item-inner-content" :class="'column-num-' + columnNum">
+          <div v-if="!renderItem" class="vm-grid-item-inner-content" :class="'column-num-' + columnNum">
             <img class="vm-grid-icon" :src="item.icon">
             <div class="vm-grid-text">{{ item.text }}</div>
           </div>
+          <div v-else v-html="renderItem(item)"></div>
         </div>
       </v-flex-item>
     </v-flex>
@@ -31,7 +32,8 @@
       hasLine: {
         type: Boolean,
         default: true
-      }
+      },
+      renderItem: Function
     },
     computed: {
       rowNum () {

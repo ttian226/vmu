@@ -12,7 +12,7 @@ Flex 是 CSS flex 布局的一个封装。
 
 ## API
 
-适用平台：WEB、React-Native
+适用平台：WEB
 
 ### Flex
 

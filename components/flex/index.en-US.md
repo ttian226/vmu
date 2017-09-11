@@ -11,7 +11,7 @@ Flex is a wrap of  Flexible Box.
 
 ## API
 
-Support WEB, React-Native.
+Support WEB
 
 ### Flex
 
